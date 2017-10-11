@@ -89,7 +89,6 @@ elseif(!empty($posted['hash'])){
      if(hash == '') {
         return;
       }
-	  //$('#loader').modal('show');
       var payuForm = document.forms.payuForm;
       payuForm.submit();
     }
@@ -103,11 +102,10 @@ elseif(!empty($posted['hash'])){
 
 			<?php
 				if($this->session->flashdata('msg_error')){
-					//echo $this->session->flashdata('msg_error');
 					echo "<div class='alert alert-danger' role='alert'>".$this->session->flashdata('msg_error')."<button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button></div>";
 				}
 				elseif($this->session->flashdata('msg_success')){
-					echo "<div class='alert alert-success' role='alert'>".$this->session->flashdata('msg_success')."</div>";
+					echo "<div class='alert alert-success' role='alert'>".$this->session->flashdata('msg_success')."<button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button></div>";
 				}
 			?>
 
