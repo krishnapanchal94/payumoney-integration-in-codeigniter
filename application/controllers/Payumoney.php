@@ -12,12 +12,14 @@ class Payumoney extends CI_Controller
 		$this->load->library('session');
 	}
 
+	//Method to show payment form
 	public function index(){
 
 		$this->load->view('pay_form');
 
 	}
 
+	//Method that handle when the payment was successful
 	public function success(){
 		if(empty($_POST)){
 			redirect('users/welcome');
@@ -49,12 +51,14 @@ class Payumoney extends CI_Controller
 		redirect('payumoney/index');
 	}
 
+	//Method that handles when payment was failed
 	public function error(){
 		unset($_POST);
 		$this->session->set_flashdata('msg_error', "Your payment was failed. Try again..");
 		redirect('payumoney/index');
 	}
 
+	//Method that handles when payment was cancelled.
 	public function cancel(){
 		unset($_POST);
 		$this->session->set_flashdata('msg_error', "Your payment was cancelled. Try again..");
